@@ -1,0 +1,12 @@
+order deny,allow
+deny from all
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+# RewriteRule $ /maintenance.html [R=302,L]
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
